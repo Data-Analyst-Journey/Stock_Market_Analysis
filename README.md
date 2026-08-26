@@ -66,27 +66,27 @@ Stock_Market_Analysis/
 | **4. Details** | Full Data Table |
 
 ---
-
 ## 🚀 How to Run
 
 ### 1. Clone the Repository
 
-
+```bash
 git clone https://github.com/Data-Analyst-Journey/Stock_Market_Analysis.git
 cd Stock_Market_Analysis
-
+```
 
 2. Install Python Dependencies
 
-
+```bash
 pip install -r python/requirements.txt
+```
 
 3. Download Data
 
-
+```bash
 cd python
 python download_data.py
-
+```
 
 4. Load Data to PostgreSQL
 
@@ -101,7 +101,6 @@ dbt run
 Open powerbi/Stock_Analysis_Dashboard.pbix and update the data source connection.
 
 ---
-
 📈 Key Results
 
 Metric Value
@@ -151,6 +150,6 @@ LinkedIn | GitHub
 
 This project is open-source and available under the MIT License.
 
-```
+
 
 ---
