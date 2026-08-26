@@ -29,7 +29,7 @@ In short, this project turns raw market data into actionable insights — helpin
 
 ## 📂 Project Structure
 
-```
+
 
 Stock_Market_Analysis/
 ├── python/
@@ -50,7 +50,7 @@ Stock_Market_Analysis/
 ├── README.md
 └── .gitignore
 
-```
+
 
 ## 📊 Dashboard Pages
 
