@@ -1,0 +1,69 @@
+# models/staging/schema.yml
+version: 2
+
+sources:
+  - name: stock_db
+    description: "PostgreSQL database containing stock market data"
+    schema: public
+    tables:
+      - name: stock_data
+        description: "Daily stock prices (open, high, low, close, volume)"
+        columns:
+          - name: date
+            description: "Date of trading day"
+          - name: symbol
+            description: "Stock symbol (e.g., AAPL)"
+          - name: open
+            description: "Opening price"
+          - name: high
+            description: "Highest price of the day"
+          - name: low
+            description: "Lowest price of the day"
+          - name: close
+            description: "Closing price"
+          - name: volume
+            description: "Trading volume"
+      
+      - name: stock_metrics
+        description: "Key stock metrics (returns, volatility, sharpe ratio)"
+        columns:
+          - name: symbol
+            description: "Stock symbol"
+          - name: total_return
+            description: "Total return over the period"
+          - name: annualized_return
+            description: "Annualized return"
+          - name: volatility
+            description: "Annualized volatility (risk)"
+          - name: sharpe_ratio
+            description: "Risk-adjusted return"
+          - name: days
+            description: "Number of trading days"
+      - name: stock_predictions
+        description: "Stock price predictions from Python model"
+      - name: stock_sentiments
+        description: "Average sentiment score from news analysis"  
+models:
+  - name: stg_stock_data
+    description: "Staging model for daily stock data"
+    columns:
+      - name: date
+        tests:
+          - not_null
+      - name: symbol
+        tests:
+          - not_null
+      - name: close
+        tests:
+          - not_null
+
+  - name: stg_stock_metrics
+    description: "Staging model for stock metrics"
+    columns:
+      - name: symbol
+        tests:
+          - not_null
+          - unique
+      - name: total_return
+        tests:
+          - not_null
